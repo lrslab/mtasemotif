@@ -1,0 +1,33 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.coverage
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+
+.venv/
+.conda/
+.sdist-audit/
+.sdist-check/
+build/
+dist/
+*.egg-info/
+
+.snakemake/
+/db/
+results/
+
+# Local database downloads and indexing artifacts
+real_db/
+real_db_sources/
+_db_rebase_test_*/
+_db_test_*/
+_rebase_src_*/
+
+# Local pipeline runs and temporary work directories
+.tmp_db*/
+.tmp_run*/
+real_run_realdb*/
+benchmarks/known_motif_panel/runs/

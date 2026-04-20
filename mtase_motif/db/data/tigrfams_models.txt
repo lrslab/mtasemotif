@@ -1,0 +1,10 @@
+# Exact names/accessions can be listed directly.
+# Regex selectors use the `re:` prefix and match NAME/ACC/DESC.
+re:\bdna\b.*\bmethyltransferase\b
+re:\bmethylase\b
+re:\bhsdm\b
+re:\bhsds\b
+re:\bhsdr\b
+re:\bdam\b
+re:\bdcm\b
+re:\bmod\b

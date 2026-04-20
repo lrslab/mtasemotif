@@ -1,0 +1,26 @@
+prune __MACOSX
+prune .sdist-audit
+prune .sdist-check
+prune .venv
+prune .pytest_cache
+prune .ruff_cache
+prune .snakemake
+prune benchmarks/known_motif_panel/runs
+prune real_db
+prune real_db_sources
+prune real_run_realdb
+prune real_run_realdb_recovery
+prune real_run_realdb_recovery2
+prune real_run_realdb_recovery3
+prune real_run_realdb_recovery4
+prune real_run_realdb_recovery5
+prune real_run_realdb_recovery6
+prune real_run_realdb_rescue_20260314
+prune _db_rebase_test_*
+prune _db_test_*
+prune _rebase_src_*
+prune .tmp_db*
+prune .tmp_run*
+recursive-exclude * __pycache__
+global-exclude *.py[cod]
+global-exclude .DS_Store

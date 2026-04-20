@@ -1,0 +1,6 @@
+# Pfam models to include in the subset HMM for MTase/RM candidate detection.
+# Entries can be Pfam accessions (PFxxxxx) or model NAME strings.
+#
+# Seed list (expand over time):
+PF01555  # N6_N4_Mtase (m6A/m4C MTases; common catalytic domain)
+PF00145  # DNA_methylase (m5C MTases; common catalytic domain)
