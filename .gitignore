@@ -19,6 +19,14 @@ dist/
 /db/
 results/
 
+# Local planning and Codex-only files
+todo.md
+agents.md
+AGENTS.md
+CODEX.md
+.codex/
+.codex-home/
+
 # Local database downloads and indexing artifacts
 real_db/
 real_db_sources/
