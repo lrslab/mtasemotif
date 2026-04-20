@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import re
 import subprocess
 import sys
 import tarfile
@@ -40,12 +42,17 @@ def test_sdist_excludes_local_db_and_run_artifacts(tmp_path: Path) -> None:
 
 
 def test_module_invocation_shows_help() -> None:
+    env = dict(os.environ, NO_COLOR="1", TERM="dumb")
     proc = subprocess.run(
         [sys.executable, "-m", "mtase_motif.cli", "--help"],
         capture_output=True,
         text=True,
+        env=env,
     )
+    stdout = re.sub(r"\x1b\[[0-9;?]*[ -/]*[@-~]", "", proc.stdout)
 
     assert proc.returncode == 0
-    assert "python -m mtase_motif.cli" in proc.stdout
-    assert "run" in proc.stdout
+    assert "Usage:" in stdout
+    assert "mtase_motif.cli" in stdout
+    assert "run" in stdout
+    assert "db" in stdout
