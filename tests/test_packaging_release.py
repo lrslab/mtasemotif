@@ -8,9 +8,13 @@ import tarfile
 from pathlib import Path
 
 
+def _build_sdist(tmp_path: Path) -> Path:
+    subprocess.check_call([sys.executable, "-m", "build", "--sdist", "--outdir", str(tmp_path)])
+    return next(tmp_path.glob("*.tar.gz"))
+
+
 def test_sdist_excludes_cache_and_macos_archive_dirs(tmp_path: Path) -> None:
-    subprocess.check_call([sys.executable, "setup.py", "sdist", "--dist-dir", str(tmp_path)])
-    tgz = next(tmp_path.glob("*.tar.gz"))
+    tgz = _build_sdist(tmp_path)
     with tarfile.open(tgz, "r:gz") as tf:
         names = tf.getnames()
 
@@ -23,8 +27,7 @@ def test_sdist_excludes_cache_and_macos_archive_dirs(tmp_path: Path) -> None:
 
 
 def test_sdist_excludes_local_db_and_run_artifacts(tmp_path: Path) -> None:
-    subprocess.check_call([sys.executable, "setup.py", "sdist", "--dist-dir", str(tmp_path)])
-    tgz = next(tmp_path.glob("*.tar.gz"))
+    tgz = _build_sdist(tmp_path)
     with tarfile.open(tgz, "r:gz") as tf:
         names = tf.getnames()
 
